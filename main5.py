@@ -11,6 +11,16 @@ class MyTest(unittest.TestCase):
         board = generate_board(n, m)
         self.assertLessEqual(get_active_cells(board, 0, 0), 8)
 
+    def test3(self):
+        n,m=10,10
+        board = generate_board(n, m)
+        self.assertEqual(get_board_cell(board, 10, 10), False)
+
+    def test4(self):
+        n,m=10,10
+        board = generate_board(n, m)
+        self.assertEqual(get_board_cell(board, 20, 20), False)
+
 
 def generate_board(n ,m):
     return [[False] * m for _ in xrange(n)]
@@ -26,3 +36,4 @@ def get_active_cells(board, i, j):
         for jj in xrange(-1, 2):
             alive += int(get_board_cell(board, i + ii, j + jj))
     return alive
+

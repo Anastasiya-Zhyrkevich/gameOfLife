@@ -8,8 +8,7 @@ def get_input_from_file():
 
 
 def generate_board(n, m):
-    board = np.random.randint(0, 2, size=(n, m), dtype=bool)
-    return board
+    return np.random.randint(0, 2, size=(n, m), dtype=bool)
 
 '''
 # deprecated verion 1
@@ -66,11 +65,9 @@ class MyTest(unittest.TestCase):
                           0, 0, 0], dtype=bool).reshape(3, 3)
         new_board = next_stage(board)
         new_board_expected = np.zeros((3, 3), dtype=bool)
-        print board
-        print new_board
-        print new_board_expected
-
         np.testing.assert_array_equal(new_board, new_board_expected)
+
+        self.assertEqual()
 
 
 if __name__ == '__main__':

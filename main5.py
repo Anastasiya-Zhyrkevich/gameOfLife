@@ -46,7 +46,24 @@ class MyTest(unittest.TestCase):
 
         self.assertEqual(board_exp, new_board)
 
+    def test8(self):
+        board = [[0, 0, 0], [1, 1, 1], [0, 0, 0]]
+        new_board = next_stage(board)
+        new_board = next_stage(new_board)
 
+        self.assertEqual(board, new_board)
+
+    def test9(self):
+        board = [[0, 1, 0], [1, 0, 1], [0, 1, 0]]
+        new_board = next_stage(board)
+
+        self.assertEqual(board, new_board)
+
+    def test10(self):
+        board = [[1, 1, 0], [1, 0, 1], [0, 1, 0]]
+        new_board = next_stage(board)
+
+        self.assertEqual(board, new_board)
 
 
 

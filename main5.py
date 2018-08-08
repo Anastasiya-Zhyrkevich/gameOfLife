@@ -33,6 +33,16 @@ class MyTest(unittest.TestCase):
 
         self.assertLessEqual(y, x)
 
+    def test6(self):
+        board = [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
+        new_board = next_stage(board)
+
+        print new_board
+
+        self.assertEqual(board, new_board)
+
+
+
 
 
 def generate_board(n ,m):
@@ -47,7 +57,8 @@ def get_active_cells(board, i, j):
     alive = 0
     for ii in xrange(-1, 2):
         for jj in xrange(-1, 2):
-            alive += int(get_board_cell(board, i + ii, j + jj))
+            if ii != 0 or jj != 0:
+                alive += int(get_board_cell(board, i + ii, j + jj))
     return alive
 
 def number_alive(board):

@@ -121,6 +121,7 @@ class MyTest(unittest.TestCase):
         self.assertEqual(len(new_board), n)
         self.assertEqual(len(new_board[0]), m)
 
+
 def get_alive_neigb(board, i, j):
     count = 0
     for x in range(i-1,i+2):
@@ -132,11 +133,13 @@ def get_alive_neigb(board, i, j):
 
     return count
 
+
 def is_alive(board,i,j):
 
     if i < 0 or j < 0 or j >= len(board[0]) or i >= len(board):
         return 0
     return board[i][j]
+
 
 def is_next_state_alive(board, i, j):
     alive_neib = get_alive_neigb(board, i, j)
@@ -148,6 +151,7 @@ def is_next_state_alive(board, i, j):
     else:
         return False
 
+
 def generate_next_stage(board):
     new_board = [[False] * len(board[0]) for _ in xrange(len(board))]
     for i in range(len(board)):
@@ -155,6 +159,7 @@ def generate_next_stage(board):
             if is_next_state_alive(board,i,j):
                 new_board[i][j] = True
     return new_board
+
 
 def generate_init(n, m):
     board = [[bool(random.randint(0, 1)) for _ in xrange(m)] for _ in xrange(n)]

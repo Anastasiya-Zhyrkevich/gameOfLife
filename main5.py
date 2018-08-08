@@ -54,5 +54,15 @@ def number_alive(board):
     return sum(sum(board[i]) for i in xrange(len(board)))
 
 def next_stage(board):
-    return board
+
+    n, m = len(board), len(board[0])
+    new_board = [[False] * m for _ in xrange(n)]
+    for i in xrange(n):
+        for j in xrange(m):
+            if get_active_cells(board, i, j) in [2, 3] and get_board_cell(board, i, j):
+                new_board[i][j] = True
+            elif get_active_cells(board, i, j) == 3:
+                new_board[i][j] = True
+
+    return new_board
 
